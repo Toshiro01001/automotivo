@@ -78,8 +78,8 @@ async function testarTela(browser, tela) {
   await semRolagemSuave(page);
   await capturar(page, "capa-" + tela.nome);
   await verificarLayout(page, "abertura");
-  const fotoOk = await page.evaluate(() => { const i = document.querySelector(".hero-foto"); return i && i.complete && i.naturalWidth === 1600; });
-  ok(fotoOk, "hero: foto carregada com 1600px de largura");
+  const fotoOk = await page.evaluate(() => { const i = document.querySelector(".hero-foto"); return i && i.complete && i.naturalWidth === 1620; });
+  ok(fotoOk, "hero: foto carregada com 1620px de largura");
   ok(limpo(await page.locator("#contador").textContent()) === "24", "hero: contador terminou em 24");
 
   // Menu do celular
