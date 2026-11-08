@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <title>Rota 65 Centro Automotivo | Seu carro de volta na rua, sem surpresa</title>
+  <meta name="description" content="Site de demonstração de uma oficina mecânica e estética automotiva fictícia: montador de revisão por quilometragem com preço na hora, agendamento com leva e traz, acompanhamento do carro por placa e lembrete de troca de óleo. Feito pela Mil e Uma Linhas!.">
+  <meta name="theme-color" content="#1F2327">
+  <link rel="canonical" href="https://toshiro01001.github.io/automotivo/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+  <p class="faixa-demo">Demonstração da <a href="https://mileumalinhas.com.br">Mil e Uma Linhas!</a> com dados fictícios: oficina, equipe, preços, placas e horários são inventados.</p>
+
+  <header class="topo">
+    <div class="miolo topo-miolo">
+      <a class="marca" href="#inicio" aria-label="Rota 65 Centro Automotivo, início">
+        <svg class="marca-sinal" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+          <rect x="2" y="2" width="36" height="36" rx="6" fill="#F2A51A"/>
+          <path d="M9 30 L20 10 L31 30" stroke="#1F2327" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+          <path d="M14 24 H26" stroke="#1F2327" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <span class="marca-nome">Rota <strong>65</strong> <span class="marca-sub">Centro Automotivo</span></span>
+      </a>
+      <button class="menu-botao" id="menu-botao" type="button" aria-expanded="false" aria-controls="menu">
+        <span class="menu-botao-traco" aria-hidden="true"></span>
+        <span class="menu-botao-texto">Menu</span>
+      </button>
+      <nav class="menu" id="menu" aria-label="Seções do site">
+        <ul>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#revisao">Monte sua revisão</a></li>
+          <li><a href="#agendar">Agendar</a></li>
+          <li><a href="#acompanhar">Meu carro</a></li>
+          <li><a href="#oleo">Óleo</a></li>
+          <li><a href="#como-funciona">Como isto funciona</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- ABERTURA -->
+    <section class="hero piso" id="inicio" aria-labelledby="hero-titulo">
+      <div class="miolo hero-grade">
+        <div class="hero-texto">
+          <p class="hero-chapeu">Oficina mecânica e estética automotiva em Cuiabá</p>
+          <h1 id="hero-titulo">Seu carro de volta na rua, com hora marcada e <span class="ambar">sem surpresa</span> no fim.</h1>
+          <p class="hero-apoio">Aqui você monta a revisão do seu carro e vê o preço antes de vir, escolhe o horário, pede para a gente buscar e acompanha cada etapa pela placa. O orçamento que você aprovou é o que você paga.</p>
+          <div class="hero-acoes">
+            <a class="botao botao-principal" href="#revisao">Montar minha revisão</a>
+            <a class="botao botao-secundario" href="#acompanhar">Acompanhar meu carro</a>
+          </div>
+          <dl class="hero-fatos">
+            <div><dt>Prazo médio de entrega</dt><dd><span class="num-grande" id="contador" data-alvo="24">0</span><span class="num-unidade">h</span></dd></div>
+            <div><dt>Itens checados por revisão</dt><dd><span class="num-medio">40</span></dd></div>
+            <div><dt>Garantia do serviço</dt><dd><span class="num-medio">90</span><span class="num-unidade">dias</span></dd></div>
+          </dl>
+        </div>
+        <figure class="hero-figura">
+          <img class="hero-foto" src="img/hero.webp" width="1600" height="1067" alt="Disco de freio sobre o piso grafite da oficina, iluminado por uma luz âmbar vinda da direita" fetchpriority="high">
+          <figcaption>Oficina na Av. Fictícia, 650, Cuiabá. Segunda a sábado, das 8h às 18h.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section class="secao" id="servicos" aria-labelledby="servicos-titulo">
+      <div class="miolo">
+        <div class="secao-cabeca">
+          <h2 id="servicos-titulo">O que a gente faz, com preço de partida.</h2>
+          <p>Seis serviços, cada um com o valor mínimo real. O preço final sai do diagnóstico, por escrito, antes de qualquer peça ser trocada.</p>
+        </div>
+        <ul class="quadro" id="quadro-servicos">
+          <li class="quadro-item">
+            <svg class="quadro-icone" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="17" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M24 12v12l8 5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+            <div class="quadro-texto"><h3>Revisão por quilometragem</h3><p>Roteiro de 10 a 60 mil km, com checklist de 40 pontos e fotos das peças.</p></div>
+            <p class="quadro-preco"><span class="quadro-desde">a partir de</span> <strong>R$ 340</strong></p>
+          </li>
+          <li class="quadro-item">
+            <svg class="quadro-icone" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="17" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="24" cy="24" r="6" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M24 7v6M24 35v6M7 24h6M35 24h6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+            <div class="quadro-texto"><h3>Freios</h3><p>Pastilhas, discos, fluido e sangria. Medimos a espessura e mostramos antes de trocar.</p></div>
+            <p class="quadro-preco"><span class="quadro-desde">a partir de</span> <strong>R$ 290</strong></p>
+          </li>
+          <li class="quadro-item">
+            <svg class="quadro-icone" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M14 8h20M14 40h20M24 8v4M24 36v4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M24 12c-6 3-6 6 0 9s6 6 0 9-6 3 0 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+            <div class="quadro-texto"><h3>Suspensão</h3><p>Amortecedores, molas, buchas e bieletas. Acaba com o barulho e com o pulo na lombada.</p></div>
+            <p class="quadro-preco"><span class="quadro-desde">a partir de</span> <strong>R$ 420</strong></p>
+          </li>
+          <li class="quadro-item">
+            <svg class="quadro-icone" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 34h32M12 34V18l12-8 12 8v16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M24 10v24" stroke="currentColor" stroke-width="2.5" stroke-dasharray="3 4"/></svg>
+            <div class="quadro-texto"><h3>Alinhamento e balanceamento</h3><p>Em equipamento 3D. Inclui calibragem e laudo impresso com os ângulos.</p></div>
+            <p class="quadro-preco"><span class="quadro-desde">a partir de</span> <strong>R$ 160</strong></p>
+          </li>
+          <li class="quadro-item">
+            <svg class="quadro-icone" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 30l10-18 8 12 5-6 5 12z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M8 36h32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="36" cy="12" r="3" fill="currentColor"/></svg>
+            <div class="quadro-texto"><h3>Polimento técnico</h3><p>Correção de riscos e vitrificação. A pintura volta a refletir o céu, não o estacionamento.</p></div>
+            <p class="quadro-preco"><span class="quadro-desde">a partir de</span> <strong>R$ 450</strong></p>
+          </li>
+          <li class="quadro-item">
+            <svg class="quadro-icone" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M12 20c0-7 5-12 12-12s12 5 12 12v4H12z" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M14 30c3 0 3 3 6 3s3-3 6-3 3 3 6 3M14 38c3 0 3 3 6 3s3-3 6-3 3 3 6 3" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+            <div class="quadro-texto"><h3>Higienização interna</h3><p>Bancos, teto, carpete e ar-condicionado com ozônio. Sai o cheiro, fica o carro.</p></div>
+            <p class="quadro-preco"><span class="quadro-desde">a partir de</span> <strong>R$ 220</strong></p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FUNÇÃO 1: MONTADOR DE REVISÃO -->
+    <section class="secao piso" id="revisao" aria-labelledby="revisao-titulo">
+      <div class="miolo">
+        <div class="secao-cabeca">
+          <h2 id="revisao-titulo">Monte sua revisão e veja o preço agora.</h2>
+          <p>Escolha o tipo do seu carro e a quilometragem que está chegando. A lista do que entra e o valor aparecem na hora. Preços de exemplo, para demonstração.</p>
+        </div>
+        <div class="revisao-grade">
+          <form class="painel revisao-form" id="revisao-form" aria-describedby="revisao-nota">
+            <fieldset class="campo-grupo">
+              <legend>Tipo do carro</legend>
+              <div class="chips" id="revisao-categorias"></div>
+            </fieldset>
+            <fieldset class="campo-grupo">
+              <legend>Revisão de quantos mil km?</legend>
+              <div class="chips chips-km" id="revisao-kms"></div>
+            </fieldset>
+            <fieldset class="campo-grupo">
+              <legend>Quer somar algum extra?</legend>
+              <div class="caixas" id="revisao-extras"></div>
+            </fieldset>
+            <p class="nota" id="revisao-nota">Os itens de "inspeção" não custam nada: se precisarem de troca, a gente orça à parte e você aprova antes.</p>
+          </form>
+          <div class="painel painel-resultado revisao-resultado" aria-live="polite">
+            <p class="resultado-rotulo" id="revisao-rotulo">Revisão de 10 mil km, hatch compacto</p>
+            <p class="preco-gigante"><span class="preco-moeda">R$</span><span id="revisao-preco">0</span></p>
+            <p class="resultado-sub" id="revisao-tempo">Cerca de 3 horas na oficina</p>
+            <h3 class="resultado-titulo">O que entra</h3>
+            <ul class="lista-itens" id="revisao-itens"></ul>
+            <a class="botao botao-principal botao-largo" href="#agendar" id="revisao-agendar">Agendar esta revisão</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FUNÇÃO 2: AGENDAMENTO -->
+    <section class="secao" id="agendar" aria-labelledby="agendar-titulo">
+      <div class="miolo">
+        <div class="secao-cabeca">
+          <h2 id="agendar-titulo">Marque o dia e o horário. Se quiser, a gente busca.</h2>
+          <p>Escolha o serviço, o dia e uma vaga livre. Com leva e traz, você informa o bairro e a gente combina a busca. Nada é enviado: o resumo aparece aqui na tela.</p>
+        </div>
+        <form class="agendar-grade" id="agendar-form" novalidate>
+          <div class="painel agendar-passos">
+            <div class="campo">
+              <label for="ag-servico">Serviço</label>
+              <select id="ag-servico" name="servico" required></select>
+            </div>
+            <fieldset class="campo-grupo">
+              <legend>Dia</legend>
+              <div class="dias" id="ag-dias" role="radiogroup" aria-label="Dias disponíveis"></div>
+            </fieldset>
+            <fieldset class="campo-grupo">
+              <legend>Horário de entrada <span class="legenda-apoio" id="ag-horarios-apoio"></span></legend>
+              <div class="horarios" id="ag-horarios"></div>
+            </fieldset>
+            <fieldset class="campo-grupo">
+              <legend>Leva e traz</legend>
+              <label class="caixa">
+                <input type="checkbox" id="ag-leva" name="leva">
+                <span>Quero que busquem e devolvam o carro</span>
+              </label>
+              <div class="campo campo-recuado" id="ag-bairro-campo" hidden>
+                <label for="ag-bairro">Bairro para buscar</label>
+                <select id="ag-bairro" name="bairro"></select>
+              </div>
+            </fieldset>
+            <div class="campo-linha">
+              <div class="campo">
+                <label for="ag-nome">Seu nome</label>
+                <input type="text" id="ag-nome" name="nome" autocomplete="name" required minlength="2" maxlength="60">
+              </div>
+              <div class="campo">
+                <label for="ag-placa">Placa do carro</label>
+                <input type="text" id="ag-placa" name="placa" class="placa-campo" autocomplete="off" required maxlength="7" placeholder="ABC1D23" spellcheck="false">
+              </div>
+            </div>
+            <p class="erro" id="ag-erro" role="alert" hidden></p>
+            <button class="botao botao-principal botao-largo" type="submit">Confirmar agendamento</button>
+          </div>
+          <aside class="painel painel-resultado agendar-resumo" aria-live="polite">
+            <p class="resultado-rotulo">Resumo</p>
+            <dl class="resumo" id="ag-resumo">
+              <div><dt>Serviço</dt><dd id="res-servico">Revisão por quilometragem</dd></div>
+              <div><dt>Dia</dt><dd id="res-dia">Escolha um dia</dd></div>
+              <div><dt>Entrada</dt><dd id="res-hora">Escolha um horário</dd></div>
+              <div><dt>Previsão de entrega</dt><dd id="res-entrega">Depende do horário</dd></div>
+              <div><dt>Leva e traz</dt><dd id="res-leva">Não</dd></div>
+            </dl>
+            <p class="preco-medio"><span class="preco-moeda">R$</span><span id="res-total">340</span><span class="preco-nota">valor de partida</span></p>
+            <div class="confirmado" id="ag-confirmado" hidden>
+              <p class="confirmado-titulo"><span class="confirmado-sinal" aria-hidden="true"></span>Agendado (simulação)</p>
+              <p id="ag-confirmado-texto"></p>
+              <label class="caixa caixa-pequena">
+                <input type="checkbox" id="ag-guardar">
+                <span>Guardar este agendamento neste navegador. Fica só aqui, ninguém recebe. Não marque em computador compartilhado.</span>
+              </label>
+            </div>
+            <div class="guardados" id="ag-guardados" hidden>
+              <h3 class="resultado-titulo">Agendamentos guardados aqui</h3>
+              <ul id="ag-guardados-lista"></ul>
+              <button class="botao botao-texto" type="button" id="ag-apagar">Apagar todos</button>
+            </div>
+          </aside>
+        </form>
+      </div>
+    </section>
+
+    <!-- FUNÇÃO 3: ACOMPANHAMENTO POR PLACA -->
+    <section class="secao piso" id="acompanhar" aria-labelledby="acompanhar-titulo">
+      <div class="miolo">
+        <div class="secao-cabeca">
+          <h2 id="acompanhar-titulo">Onde está o meu carro?</h2>
+          <p>Digite a placa e veja em que etapa o serviço está, com o horário de cada passo. Para testar, use uma das placas de exemplo.</p>
+        </div>
+        <form class="busca-placa" id="placa-form" novalidate>
+          <label for="placa-campo" class="rotulo-oculto">Placa do carro</label>
+          <input type="text" id="placa-campo" class="placa-campo placa-grande" maxlength="7" placeholder="ABC1D23" autocomplete="off" spellcheck="false" aria-describedby="placa-exemplos">
+          <button class="botao botao-principal" type="submit">Ver etapas</button>
+        </form>
+        <p class="exemplos" id="placa-exemplos">Exemplos: <button type="button" class="chip-exemplo" data-placa="RTA1B65">RTA1B65</button> <button type="button" class="chip-exemplo" data-placa="QKV7C23">QKV7C23</button> <button type="button" class="chip-exemplo" data-placa="NPX2D90">NPX2D90</button></p>
+        <div class="painel acompanhar-painel" id="acompanhar-painel" aria-live="polite" hidden>
+          <div class="acompanhar-cabeca">
+            <div>
+              <p class="resultado-rotulo">Placa</p>
+              <p class="placa-mostrada" id="ac-placa"></p>
+            </div>
+            <dl class="acompanhar-dados">
+              <div><dt>Carro</dt><dd id="ac-carro"></dd></div>
+              <div><dt>Serviço</dt><dd id="ac-servico"></dd></div>
+              <div><dt>Mecânico responsável</dt><dd id="ac-mecanico"></dd></div>
+              <div><dt>Previsão</dt><dd id="ac-previsao"></dd></div>
+            </dl>
+          </div>
+          <ol class="etapas" id="ac-etapas"></ol>
+          <p class="observacao" id="ac-obs"></p>
+        </div>
+        <p class="erro" id="placa-erro" role="alert" hidden></p>
+      </div>
+    </section>
+
+    <!-- FUNÇÃO 4: LEMBRETE DE ÓLEO -->
+    <section class="secao" id="oleo" aria-labelledby="oleo-titulo">
+      <div class="miolo">
+        <div class="secao-cabeca">
+          <h2 id="oleo-titulo">Quando trocar o óleo de novo?</h2>
+          <p>Informe o que está no adesivo do para-brisa e a quilometragem de hoje. A gente calcula quanto falta, por km e por data, o que vencer primeiro.</p>
+        </div>
+        <form class="oleo-grade" id="oleo-form" novalidate>
+          <div class="painel oleo-form">
+            <fieldset class="campo-grupo">
+              <legend>Tipo de óleo</legend>
+              <div class="chips" id="oleo-tipos"></div>
+            </fieldset>
+            <div class="campo-linha">
+              <div class="campo">
+                <label for="oleo-km-troca">Km na última troca</label>
+                <input type="number" id="oleo-km-troca" inputmode="numeric" min="0" max="999999" step="1" value="42000">
+              </div>
+              <div class="campo">
+                <label for="oleo-km-atual">Km de hoje</label>
+                <input type="number" id="oleo-km-atual" inputmode="numeric" min="0" max="999999" step="1" value="46350">
+              </div>
+            </div>
+            <div class="campo">
+              <label for="oleo-data">Data da última troca</label>
+              <input type="date" id="oleo-data">
+            </div>
+            <p class="erro" id="oleo-erro" role="alert" hidden></p>
+          </div>
+          <div class="painel painel-resultado oleo-resultado" aria-live="polite">
+            <p class="resultado-rotulo" id="oleo-rotulo">Óleo semissintético, a cada 7.500 km ou 8 meses</p>
+            <div class="mostrador" role="img" aria-labelledby="oleo-faltam">
+              <div class="mostrador-barra"><div class="mostrador-preenchido" id="oleo-barra"></div></div>
+            </div>
+            <p class="preco-gigante preco-gigante-centro"><span id="oleo-km-restante">0</span><span class="preco-moeda preco-moeda-fim">km</span></p>
+            <p class="resultado-sub" id="oleo-faltam">faltam para a próxima troca</p>
+            <dl class="resumo resumo-duas">
+              <div><dt>Troca por km em</dt><dd id="oleo-km-alvo"></dd></div>
+              <div><dt>Troca por data em</dt><dd id="oleo-data-alvo"></dd></div>
+              <div><dt>Você roda por mês</dt><dd id="oleo-media"></dd></div>
+              <div><dt>O que vence primeiro</dt><dd id="oleo-primeiro"></dd></div>
+            </dl>
+            <p class="aviso-estado" id="oleo-estado"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTOS E OFICINA -->
+    <section class="secao" id="oficina" aria-labelledby="oficina-titulo">
+      <div class="miolo oficina-grade">
+        <div>
+          <h2 id="oficina-titulo">Quem já deixou o carro com a gente.</h2>
+          <ul class="depoimentos" id="depoimentos"></ul>
+        </div>
+        <div class="painel oficina-dados">
+          <h3 class="resultado-titulo">A oficina</h3>
+          <dl class="resumo">
+            <div><dt>Endereço</dt><dd>Av. Fictícia, 650, Bairro Exemplo, Cuiabá, MT</dd></div>
+            <div><dt>Horário</dt><dd>Segunda a sexta, 8h às 18h. Sábado, 8h às 13h.</dd></div>
+            <div><dt>Telefone</dt><dd>(65) 3000-0065 (número fictício)</dd></div>
+            <div><dt>Equipe</dt><dd>3 mecânicos, 1 esteticista automotivo e 1 pessoa na recepção</dd></div>
+          </dl>
+          <p class="nota">Aceitamos cartão, Pix e parcelamento em até 6 vezes no serviço. Garantia de 90 dias em mão de obra, peças conforme o fabricante.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO ISTO FUNCIONA -->
+    <section class="secao secao-como" id="como-funciona" aria-labelledby="como-titulo">
+      <div class="miolo como-grade">
+        <div class="secao-cabeca">
+          <h2 id="como-titulo">Como isto funciona</h2>
+          <p>Este site é uma demonstração. Aqui está o que ele faz, em três níveis de detalhe.</p>
+        </div>
+        <div class="como-blocos">
+          <div class="como-bloco">
+            <h3>Para quem só quer usar</h3>
+            <p>Você monta a revisão e vê o preço, escolhe dia e horário, pede leva e traz, acompanha o carro pela placa e descobre quando trocar o óleo. Tudo funciona na hora, sem cadastro. Nada do que você digita sai do seu celular ou computador: é um exemplo de como seria o site de uma oficina de verdade.</p>
+          </div>
+          <div class="como-bloco">
+            <h3>Para quem quer entender por dentro</h3>
+            <p>A página é um arquivo de texto (HTML) que o navegador desenha, uma folha de estilo (CSS) que dá as cores, fontes e o padrão do piso, e um programa pequeno (JavaScript) que faz as contas. Os preços, horários e placas estão numa tabela dentro desse programa. Quando você clica em "SUV" e "40 mil km", ele soma os itens daquela revisão, multiplica pelo fator do carro e escreve o resultado na tela. O agendamento só é guardado se você marcar a caixa, e fica no armazenamento do próprio navegador.</p>
+          </div>
+          <details class="como-tecnico">
+            <summary>Detalhes técnicos</summary>
+            <ul>
+              <li>HTML, CSS e JavaScript puros, sem framework, sem CDN e sem fonte externa. Fontes Barlow e Barlow Condensed em woff2 locais (SIL OFL).</li>
+              <li><code>Content-Security-Policy</code> por meta: <code>default-src 'self'</code>, sem script inline, sem estilo inline no HTML, <code>connect-src 'none'</code>, <code>form-action 'none'</code>. O único estilo dinâmico (largura da barra do lembrete de óleo) é aplicado via <code>element.style.setProperty</code>, permitido pela CSP.</li>
+              <li>Dados fictícios em <code>js/dados.js</code> (um objeto <code>window.ROTA65</code>). Lógica em <code>js/app.js</code>, em módulos por função: revisão, agendamento, acompanhamento, óleo, depoimentos, menu e contador.</li>
+              <li>Agendamento: os dias são gerados a partir de hoje (segunda a sábado, 8 dias úteis); vagas ocupadas vêm de uma tabela por dia da semana. Validação da placa no padrão Mercosul e antigo (<code>^[A-Z]{3}[0-9][A-Z0-9][0-9]{2}$</code>). Ao marcar "guardar", a lista vai para <code>localStorage</code> na chave <code>rota65-agendamentos</code>, em <code>try/catch</code>.</li>
+              <li>Acessibilidade: contraste AA em todos os pares, foco visível com anel âmbar, chips como <code>input type=radio</code> reais, regiões <code>aria-live</code> nos resultados, <code>prefers-reduced-motion</code> respeitado.</li>
+              <li>Testes em <code>tests/site.cjs</code> com Playwright: 1280x900, iPhone 13 e 320 px; conferem console, rolagem horizontal, texto cortado e cada função.</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="miolo rodape-miolo">
+      <p><strong>Rota 65 Centro Automotivo</strong> é uma empresa fictícia criada para esta demonstração. Nenhum serviço é vendido aqui.</p>
+      <p>Site de demonstração feito pela <a href="https://mileumalinhas.com.br">Mil e Uma Linhas!</a>, Cuiabá.</p>
+    </div>
+  </footer>
+
+  <script src="js/dados.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
