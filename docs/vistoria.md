@@ -41,3 +41,18 @@ Oficina, endereço ("Av. Fictícia, 650"), telefone "(65) 3000-0065", mecânicos
 - O acompanhamento por placa, numa oficina real, exporia dados do cliente a quem soubesse a placa (que é pública). Um site de verdade precisaria de um segundo fator (telefone cadastrado ou código da ordem de serviço). Aqui as placas são fictícias e o risco é nulo, mas está anotado para quando virar produto.
 - A CSP por `<meta>` não cobre `frame-ancestors`; se alguém incorporar o site num `iframe`, o navegador não impede. Para um site estático de demonstração sem login nem dados reais, o impacto é nulo.
 - Preços e intervalos de troca de óleo são exemplos; uma oficina real precisaria revisar os valores e os intervalos conforme o manual de cada fabricante antes de publicar.
+
+## Revisão de 08/11/2026 (leva final de design)
+
+Revisão feita depois de aplicar os design systems da leva final e encaixar as fotos geradas por IA no Canva.
+
+- **CSP:** a política do `index.html` é a mesma de antes da leva (conferida linha a linha). Continua sem `unsafe-inline`, sem `unsafe-eval` e sem origem externa.
+- **Script e estilo inline:** nenhum `<script>` inline, nenhum `<style>` e nenhum atributo `style` nas páginas. Os efeitos novos mudam só classes, `textContent` e propriedades CSS pelo CSSOM, que a CSP permite.
+- **Recursos externos:** nenhum script, fonte, imagem ou folha de estilo de fora. Os únicos links externos são de navegação comum (mileumalinhas.com.br e o perfil do GitHub).
+- **Bibliotecas:** nenhuma entrou. Movimento, vidro, contadores e revelação ao rolar são CSS e JavaScript escritos à mão, desligados com `prefers-reduced-motion`.
+- **innerHTML:** nenhum uso no JavaScript.
+- **eval e Function:** nenhum uso.
+- **Armazenamento:** `localStorage` continua só com o que já existia (`rota65-agendamentos`), sem chave nova nesta leva.
+- **Dados pessoais:** nenhum dado pessoal real entrou. Pessoas, empresas, telefones e endereços seguem fictícios. As fotos não retratam pessoas reais.
+- **Imagens:** arquivos webp locais em `img/`, com `width`/`height`, `loading="lazy"` e `decoding="async"`. Nenhuma é carregada de outro domínio.
+- **Testes:** `tests/site.cjs` passa em 1280x900, iPhone 13 e 320px, sem erro de console e sem rolagem horizontal.
