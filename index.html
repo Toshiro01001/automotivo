@@ -59,9 +59,18 @@
             <a class="botao botao-secundario" href="#acompanhar">Acompanhar meu carro</a>
           </div>
           <dl class="hero-fatos">
-            <div><dt>Prazo médio de entrega</dt><dd><span class="num-grande" id="contador" data-alvo="24">0</span><span class="num-unidade">h</span></dd></div>
-            <div><dt>Itens checados por revisão</dt><dd><span class="num-medio">40</span></dd></div>
-            <div><dt>Garantia do serviço</dt><dd><span class="num-medio">90</span><span class="num-unidade">dias</span></dd></div>
+            <div class="celula">
+              <svg class="celula-icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v5l3.5 2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <dt>Prazo médio de entrega</dt><dd><span class="num-grande" id="contador" data-alvo="24">0</span><span class="num-unidade">h</span></dd>
+            </div>
+            <div class="celula">
+              <svg class="celula-icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="3" width="16" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 9l2 2 4-4M8 16h8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <dt>Itens checados por revisão</dt><dd><span class="num-medio">40</span><span class="num-unidade">itens</span></dd>
+            </div>
+            <div class="celula">
+              <svg class="celula-icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <dt>Garantia do serviço</dt><dd><span class="num-medio">90</span><span class="num-unidade">dias</span></dd>
+            </div>
           </dl>
         </div>
         <figure class="hero-figura">
@@ -80,34 +89,46 @@
         </div>
         <ul class="quadro" id="quadro-servicos">
           <li class="quadro-item">
-            <svg class="quadro-icone" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="17" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M24 12v12l8 5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+            <figure class="quadro-midia">
+              <img src="img/servico-revisao-elevador.webp" width="1456" height="1088" alt="Carro genérico escuro suspenso em elevador de oficina, visto de baixo, com luz âmbar vinda da direita e piso de concreto polido grafite." loading="lazy" decoding="async">
+              <p class="quadro-preco"><span class="quadro-desde">a partir de</span> <strong>R$ 340</strong></p>
+            </figure>
             <div class="quadro-texto"><h3>Revisão por quilometragem</h3><p>Roteiro de 10 a 60 mil km, com checklist de 40 pontos e fotos das peças.</p></div>
-            <p class="quadro-preco"><span class="quadro-desde">a partir de</span> <strong>R$ 340</strong></p>
           </li>
           <li class="quadro-item">
-            <svg class="quadro-icone" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="17" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="24" cy="24" r="6" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M24 7v6M24 35v6M7 24h6M35 24h6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+            <figure class="quadro-midia">
+              <img src="img/servico-freios-pastilha.webp" width="1456" height="1088" alt="Mão adulta com luva preta medindo a espessura de uma pastilha de freio com um paquímetro, ao lado de um disco de freio, sob luz âmbar." loading="lazy" decoding="async">
+              <p class="quadro-preco"><span class="quadro-desde">a partir de</span> <strong>R$ 290</strong></p>
+            </figure>
             <div class="quadro-texto"><h3>Freios</h3><p>Pastilhas, discos, fluido e sangria. Medimos a espessura e mostramos antes de trocar.</p></div>
-            <p class="quadro-preco"><span class="quadro-desde">a partir de</span> <strong>R$ 290</strong></p>
           </li>
           <li class="quadro-item">
-            <svg class="quadro-icone" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M14 8h20M14 40h20M24 8v4M24 36v4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M24 12c-6 3-6 6 0 9s6 6 0 9-6 3 0 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+            <figure class="quadro-midia">
+              <img src="img/servico-suspensao-amortecedor.webp" width="1456" height="1088" alt="Amortecedor e mola helicoidal novos, pretos, apoiados sobre bancada de aço escuro com uma chave de impacto ao lado e luz âmbar rasante." loading="lazy" decoding="async">
+              <p class="quadro-preco"><span class="quadro-desde">a partir de</span> <strong>R$ 420</strong></p>
+            </figure>
             <div class="quadro-texto"><h3>Suspensão</h3><p>Amortecedores, molas, buchas e bieletas. Acaba com o barulho e com o pulo na lombada.</p></div>
-            <p class="quadro-preco"><span class="quadro-desde">a partir de</span> <strong>R$ 420</strong></p>
           </li>
           <li class="quadro-item">
-            <svg class="quadro-icone" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 34h32M12 34V18l12-8 12 8v16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M24 10v24" stroke="currentColor" stroke-width="2.5" stroke-dasharray="3 4"/></svg>
+            <figure class="quadro-midia">
+              <img src="img/servico-alinhamento-alvo.webp" width="1456" height="1088" alt="Roda de carro com alvo de alinhamento 3D preso ao aro, em rampa de alinhamento, com piso grafite e luz âmbar ao fundo." loading="lazy" decoding="async">
+              <p class="quadro-preco"><span class="quadro-desde">a partir de</span> <strong>R$ 160</strong></p>
+            </figure>
             <div class="quadro-texto"><h3>Alinhamento e balanceamento</h3><p>Em equipamento 3D. Inclui calibragem e laudo impresso com os ângulos.</p></div>
-            <p class="quadro-preco"><span class="quadro-desde">a partir de</span> <strong>R$ 160</strong></p>
           </li>
           <li class="quadro-item">
-            <svg class="quadro-icone" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 30l10-18 8 12 5-6 5 12z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M8 36h32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="36" cy="12" r="3" fill="currentColor"/></svg>
+            <figure class="quadro-midia">
+              <img src="img/servico-polimento-capo.webp" width="1456" height="1088" alt="Politriz orbital sobre capô preto polido refletindo uma linha de luz âmbar, em oficina de estética com fundo grafite." loading="lazy" decoding="async">
+              <p class="quadro-preco"><span class="quadro-desde">a partir de</span> <strong>R$ 450</strong></p>
+            </figure>
             <div class="quadro-texto"><h3>Polimento técnico</h3><p>Correção de riscos e vitrificação. A pintura volta a refletir o céu, não o estacionamento.</p></div>
-            <p class="quadro-preco"><span class="quadro-desde">a partir de</span> <strong>R$ 450</strong></p>
           </li>
           <li class="quadro-item">
-            <svg class="quadro-icone" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M12 20c0-7 5-12 12-12s12 5 12 12v4H12z" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M14 30c3 0 3 3 6 3s3-3 6-3 3 3 6 3M14 38c3 0 3 3 6 3s3-3 6-3 3 3 6 3" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+            <figure class="quadro-midia">
+              <img src="img/servico-higienizacao-interior.webp" width="1456" height="1088" alt="Interior de carro com bancos de tecido cinza limpos, porta aberta, uma máquina de vapor com mangueira e luz âmbar entrando pela porta." loading="lazy" decoding="async">
+              <p class="quadro-preco"><span class="quadro-desde">a partir de</span> <strong>R$ 220</strong></p>
+            </figure>
             <div class="quadro-texto"><h3>Higienização interna</h3><p>Bancos, teto, carpete e ar-condicionado com ozônio. Sai o cheiro, fica o carro.</p></div>
-            <p class="quadro-preco"><span class="quadro-desde">a partir de</span> <strong>R$ 220</strong></p>
           </li>
         </ul>
       </div>
@@ -121,7 +142,7 @@
           <p>Escolha o tipo do seu carro e a quilometragem que está chegando. A lista do que entra e o valor aparecem na hora. Preços de exemplo, para demonstração.</p>
         </div>
         <div class="revisao-grade">
-          <form class="painel revisao-form" id="revisao-form" aria-describedby="revisao-nota">
+          <form class="painel brilho revisao-form" id="revisao-form" aria-describedby="revisao-nota">
             <fieldset class="campo-grupo">
               <legend>Tipo do carro</legend>
               <div class="chips" id="revisao-categorias"></div>
@@ -136,7 +157,8 @@
             </fieldset>
             <p class="nota" id="revisao-nota">Os itens de "inspeção" não custam nada: se precisarem de troca, a gente orça à parte e você aprova antes.</p>
           </form>
-          <div class="painel painel-resultado revisao-resultado" aria-live="polite">
+          <div class="painel brilho painel-cantos revisao-resultado" id="revisao-resultado" aria-live="polite">
+            <span class="cantos" aria-hidden="true"></span><span class="cantos cantos-baixo" aria-hidden="true"></span>
             <p class="resultado-rotulo" id="revisao-rotulo">Revisão de 10 mil km, hatch compacto</p>
             <p class="preco-gigante"><span class="preco-moeda">R$</span><span id="revisao-preco">0</span></p>
             <p class="resultado-sub" id="revisao-tempo">Cerca de 3 horas na oficina</p>
@@ -156,7 +178,7 @@
           <p>Escolha o serviço, o dia e uma vaga livre. Com leva e traz, você informa o bairro e a gente combina a busca. Nada é enviado: o resumo aparece aqui na tela.</p>
         </div>
         <form class="agendar-grade" id="agendar-form" novalidate>
-          <div class="painel agendar-passos">
+          <div class="painel brilho agendar-passos">
             <div class="campo">
               <label for="ag-servico">Serviço</label>
               <select id="ag-servico" name="servico" required></select>
@@ -193,7 +215,7 @@
             <p class="erro" id="ag-erro" role="alert" hidden></p>
             <button class="botao botao-principal botao-largo" type="submit">Confirmar agendamento</button>
           </div>
-          <aside class="painel painel-resultado agendar-resumo" aria-live="polite">
+          <aside class="painel brilho painel-resultado agendar-resumo" aria-live="polite">
             <p class="resultado-rotulo">Resumo</p>
             <dl class="resumo" id="ag-resumo">
               <div><dt>Serviço</dt><dd id="res-servico">Revisão por quilometragem</dd></div>
@@ -234,7 +256,8 @@
           <button class="botao botao-principal" type="submit">Ver etapas</button>
         </form>
         <p class="exemplos" id="placa-exemplos">Exemplos: <button type="button" class="chip-exemplo" data-placa="RTA1B65">RTA1B65</button> <button type="button" class="chip-exemplo" data-placa="QKV7C23">QKV7C23</button> <button type="button" class="chip-exemplo" data-placa="NPX2D90">NPX2D90</button></p>
-        <div class="painel acompanhar-painel" id="acompanhar-painel" aria-live="polite" hidden>
+        <div class="painel brilho painel-cantos acompanhar-painel" id="acompanhar-painel" aria-live="polite" hidden>
+          <span class="cantos" aria-hidden="true"></span><span class="cantos cantos-baixo" aria-hidden="true"></span>
           <div class="acompanhar-cabeca">
             <div>
               <p class="resultado-rotulo">Placa</p>
@@ -262,7 +285,7 @@
           <p>Informe o que está no adesivo do para-brisa e a quilometragem de hoje. A gente calcula quanto falta, por km e por data, o que vencer primeiro.</p>
         </div>
         <form class="oleo-grade" id="oleo-form" novalidate>
-          <div class="painel oleo-form">
+          <div class="painel brilho oleo-form">
             <fieldset class="campo-grupo">
               <legend>Tipo de óleo</legend>
               <div class="chips" id="oleo-tipos"></div>
@@ -283,10 +306,11 @@
             </div>
             <p class="erro" id="oleo-erro" role="alert" hidden></p>
           </div>
-          <div class="painel painel-resultado oleo-resultado" aria-live="polite">
+          <div class="painel brilho painel-resultado oleo-resultado" aria-live="polite">
             <p class="resultado-rotulo" id="oleo-rotulo">Óleo semissintético, a cada 7.500 km ou 8 meses</p>
-            <div class="mostrador" role="img" aria-labelledby="oleo-faltam">
-              <div class="mostrador-barra"><div class="mostrador-preenchido" id="oleo-barra"></div></div>
+            <div class="mostrador medidor" role="img" aria-labelledby="oleo-faltam">
+              <div class="medidor-rotulo"><span>Intervalo usado</span><span class="medidor-valor" id="oleo-pct">0%</span></div>
+              <div class="mostrador-barra medidor-trilho"><div class="mostrador-preenchido medidor-preenchido" id="oleo-barra"></div></div>
             </div>
             <p class="preco-gigante preco-gigante-centro"><span id="oleo-km-restante">0</span><span class="preco-moeda preco-moeda-fim">km</span></p>
             <p class="resultado-sub" id="oleo-faltam">faltam para a próxima troca</p>
@@ -302,14 +326,31 @@
       </div>
     </section>
 
+    <!-- FAIXA DE COMPROMISSOS -->
+    <aside class="compromissos" aria-labelledby="compromissos-titulo">
+      <h2 class="rotulo-oculto" id="compromissos-titulo">Nossos compromissos</h2>
+      <p class="rotulo-oculto">Garantia de 90 dias. Peças conforme o fabricante. Leva e traz. Pix e cartão em 6x. Checklist de 40 pontos.</p>
+      <svg class="compromissos-trilho" aria-hidden="true" focusable="false" width="100%" height="56">
+        <g class="compromissos-texto"><text x="0" y="50%" dominant-baseline="central">Garantia de 90 dias<tspan class="ponto"> · </tspan>Peças conforme o fabricante<tspan class="ponto"> · </tspan>Leva e traz<tspan class="ponto"> · </tspan>Pix e cartão em 6x<tspan class="ponto"> · </tspan>Checklist de 40 pontos<tspan class="ponto"> · </tspan>Garantia de 90 dias<tspan class="ponto"> · </tspan>Peças conforme o fabricante<tspan class="ponto"> · </tspan>Leva e traz<tspan class="ponto"> · </tspan>Pix e cartão em 6x<tspan class="ponto"> · </tspan>Checklist de 40 pontos<tspan class="ponto"> · </tspan></text></g>
+      </svg>
+    </aside>
+
     <!-- DEPOIMENTOS E OFICINA -->
-    <section class="secao" id="oficina" aria-labelledby="oficina-titulo">
+    <section class="secao faixa-giz" id="oficina" aria-labelledby="oficina-titulo" data-nav-theme="claro">
       <div class="miolo oficina-grade">
         <div>
-          <h2 id="oficina-titulo">Quem já deixou o carro com a gente.</h2>
+          <div class="secao-cabeca">
+            <h2 id="oficina-titulo">Quem já deixou o carro com a gente.</h2>
+          </div>
+          <figure class="depoimentos-foto">
+            <img src="img/mecanico-limpando-maos.webp" width="1088" height="1456" alt="Mecânico adulto visto de costas, de macacão grafite, limpando as mãos em um pano ao lado de um carro no elevador, sob luz âmbar." loading="lazy" decoding="async">
+          </figure>
           <ul class="depoimentos" id="depoimentos"></ul>
         </div>
         <div class="painel oficina-dados">
+          <figure class="oficina-foto">
+            <img src="img/recepcao-chaves.webp" width="1456" height="970" alt="Balcão de recepção de oficina em madeira escura e chapa de aço, painel com ganchos e chaves penduradas, luz âmbar de uma luminária pendente." loading="lazy" decoding="async">
+          </figure>
           <h3 class="resultado-titulo">A oficina</h3>
           <dl class="resumo">
             <div><dt>Endereço</dt><dd>Av. Fictícia, 650, Bairro Exemplo, Cuiabá, MT</dd></div>
@@ -342,10 +383,11 @@
             <summary>Detalhes técnicos</summary>
             <ul>
               <li>HTML, CSS e JavaScript puros, sem framework, sem CDN e sem fonte externa. Fontes Barlow e Barlow Condensed em woff2 locais (SIL OFL).</li>
-              <li><code>Content-Security-Policy</code> por meta: <code>default-src 'self'</code>, sem script inline, sem estilo inline no HTML, <code>connect-src 'none'</code>, <code>form-action 'none'</code>. O único estilo dinâmico (largura da barra do lembrete de óleo) é aplicado via <code>element.style.setProperty</code>, permitido pela CSP.</li>
+              <li><code>Content-Security-Policy</code> por meta: <code>default-src 'self'</code>, sem script inline, sem estilo inline no HTML, <code>connect-src 'none'</code>, <code>form-action 'none'</code>. Os únicos estilos dinâmicos (largura da barra do lembrete de óleo, posição do brilho nos painéis e atrasos da revelação ao rolar) são aplicados via <code>element.style.setProperty</code>, permitido pela CSP.</li>
               <li>Dados fictícios em <code>js/dados.js</code> (um objeto <code>window.ROTA65</code>). Lógica em <code>js/app.js</code>, em módulos por função: revisão, agendamento, acompanhamento, óleo, depoimentos, menu e contador.</li>
               <li>Agendamento: os dias são gerados a partir de hoje (segunda a sábado, 8 dias úteis); vagas ocupadas vêm de uma tabela por dia da semana. Validação da placa no padrão Mercosul e antigo (<code>^[A-Z]{3}[0-9][A-Z0-9][0-9]{2}$</code>). Ao marcar "guardar", a lista vai para <code>localStorage</code> na chave <code>rota65-agendamentos</code>, em <code>try/catch</code>.</li>
-              <li>Acessibilidade: contraste AA em todos os pares, foco visível com anel âmbar, chips como <code>input type=radio</code> reais, regiões <code>aria-live</code> nos resultados, <code>prefers-reduced-motion</code> respeitado.</li>
+              <li>Acessibilidade: contraste AA em todos os pares, foco visível com anel âmbar, chips como <code>input type=radio</code> reais, regiões <code>aria-live</code> nos resultados, <code>prefers-reduced-motion</code> respeitado (revelação ao rolar, faixa que rola, pulso das pílulas e abertura do hero desligam).</li>
+              <li>Movimento sem biblioteca: revelação ao rolar com <code>IntersectionObserver</code>, títulos divididos em linhas por JavaScript para o <code>clip-path</code>, faixa de compromissos em SVG com <code>@keyframes</code>, barra do topo que troca de tema ao cruzar a faixa clara.</li>
               <li>Testes em <code>tests/site.cjs</code> com Playwright: 1280x900, iPhone 13 e 320 px; conferem console, rolagem horizontal, texto cortado e cada função.</li>
             </ul>
           </details>
@@ -355,6 +397,7 @@
   </main>
 
   <footer class="rodape">
+    <span class="rodape-fantasma" aria-hidden="true">ROTA 65</span>
     <div class="miolo rodape-miolo">
       <p><strong>Rota 65 Centro Automotivo</strong> é uma empresa fictícia criada para esta demonstração. Nenhum serviço é vendido aqui.</p>
       <p>Site de demonstração feito pela <a href="https://mileumalinhas.com.br">Mil e Uma Linhas!</a>, Cuiabá.</p>

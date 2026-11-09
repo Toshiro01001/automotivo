@@ -37,6 +37,16 @@
     return label;
   }
 
+  /* ---------- cantos de HUD: crescem por 600ms quando o resultado muda ---------- */
+  var temposCantos = {};
+  function cantosMudaram(painel) {
+    if (!painel || reduzMovimento) { return; }
+    var chave = painel.id || "painel";
+    painel.classList.add("mudou");
+    clearTimeout(temposCantos[chave]);
+    temposCantos[chave] = setTimeout(function () { painel.classList.remove("mudou"); }, 600);
+  }
+
   /* ---------- menu do celular ---------- */
   (function menu() {
     var botao = $("menu-botao"), menu = $("menu");
@@ -120,6 +130,7 @@
       var precoEl = $("revisao-preco");
       precoEl.textContent = reais(total);
       piscar(precoEl);
+      cantosMudaram($("revisao-resultado"));
       $("revisao-rotulo").textContent = "Revisão de " + km + " mil km, " + cat.nome.toLowerCase() + " (motor " + cat.motor + ")";
       var horas = Math.round(minutos / 30) / 2;
       $("revisao-tempo").textContent = "Cerca de " + String(horas).replace(".", ",") + " hora" + (horas === 1 ? "" : "s") + " na oficina, " + ids.length + " itens" + (extras.length ? " e " + extras.length + " extra" + (extras.length > 1 ? "s" : "") : "");
@@ -332,12 +343,20 @@
         li.appendChild(el("span", "etapa-ponto"));
         li.appendChild(el("span", "etapa-nome", nome));
         li.appendChild(el("span", "etapa-hora", c.horarios[i] || ""));
-        var texto = estado === "feita" ? "concluída" : (estado === "atual" ? (c.etapaAtual === 5 ? "liberado para retirada" : "em andamento agora") : "ainda não começou");
+        var pronto = estado === "atual" && c.etapaAtual === D.ETAPAS.length - 1;
+        if (pronto) { li.classList.add("pronto"); }
+        var texto = estado === "feita" ? "concluída" : (estado === "atual" ? (pronto ? "liberado para retirada" : "em andamento agora") : "ainda não começou");
         li.appendChild(el("span", "etapa-estado", texto));
+        // medidor de 4px por etapa (feita = cheio em verde, atual = parcial em âmbar)
+        var medidor = el("span", "etapa-medidor");
+        medidor.setAttribute("aria-hidden", "true");
+        medidor.appendChild(el("span"));
+        li.appendChild(medidor);
         ol.appendChild(li);
       });
       $("ac-obs").textContent = c.obs;
       painel.hidden = false;
+      cantosMudaram(painel);
     }
     form.addEventListener("submit", function (ev) { ev.preventDefault(); mostrar(campo.value.trim().toUpperCase()); });
     Array.prototype.forEach.call(document.querySelectorAll(".chip-exemplo"), function (b) {
@@ -394,7 +413,11 @@
       var fracao = Math.max(usado, usadoTempo);
       var barra = $("oleo-barra");
       barra.style.setProperty("width", Math.round(fracao * 100) + "%");
-      barra.className = "mostrador-preenchido" + (fracao >= 1 ? " vencido" : (fracao < 0.7 ? " ok" : ""));
+      barra.className = "mostrador-preenchido medidor-preenchido" + (fracao >= 1 ? " vencido" : (fracao < 0.7 ? " ok" : ""));
+      var pct = $("oleo-pct");
+      if (pct) { pct.textContent = Math.round(fracao * 100) + "%"; }
+      var medidor = barra.closest ? barra.closest(".medidor") : null;
+      if (medidor) { medidor.className = "mostrador medidor" + (fracao < 0.7 && fracao < 1 ? " ok" : ""); }
       var estado = $("oleo-estado");
       if (fracao >= 1) { estado.textContent = "Troca vencida. Rodar com óleo velho desgasta o motor; marque um horário."; estado.className = "aviso-estado atencao"; }
       else if (fracao >= 0.7) { estado.textContent = "Está chegando: você já usou " + Math.round(fracao * 100) + "% do intervalo. Vale agendar para as próximas semanas."; estado.className = "aviso-estado atencao"; }
@@ -417,5 +440,128 @@
       li.appendChild(bq); li.appendChild(f);
       ul.appendChild(li);
     });
+  })();
+  /* ---------- brilho que segue o ponteiro nos painéis (só com mouse) ---------- */
+  (function brilho() {
+    if (!window.matchMedia || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) { return; }
+    var paineis = document.querySelectorAll(".painel.brilho");
+    Array.prototype.forEach.call(paineis, function (p) {
+      p.addEventListener("mousemove", function (ev) {
+        var r = p.getBoundingClientRect();
+        p.style.setProperty("--mouse-x", (ev.clientX - r.left) + "px");
+        p.style.setProperty("--mouse-y", (ev.clientY - r.top) + "px");
+      });
+    });
+  })();
+
+  /* ---------- revelação ao rolar: blocos com blur e títulos linha a linha ---------- */
+  (function revelar() {
+    var blocos = Array.prototype.slice.call(document.querySelectorAll(".secao > .miolo, .quadro-item"));
+    var titulos = Array.prototype.slice.call(document.querySelectorAll(".secao-cabeca > h2"));
+
+    // Divide cada h2 em linhas (medindo a posição de cada palavra) para a revelação por clip-path
+    function dividirLinhas(h2) {
+      if (!h2.hasAttribute("data-texto")) { h2.setAttribute("data-texto", h2.textContent); }
+      var texto = h2.getAttribute("data-texto");
+      var ativo = h2.classList.contains("linhas-ativas");
+      h2.textContent = "";
+      var palavras = texto.split(/\s+/).filter(Boolean);
+      var spans = palavras.map(function (pal) {
+        var sp = el("span", null, pal);
+        h2.appendChild(sp);
+        h2.appendChild(document.createTextNode(" "));
+        return sp;
+      });
+      var linhas = [], topoAtual = null;
+      spans.forEach(function (sp) {
+        var t = sp.offsetTop;
+        if (topoAtual === null || Math.abs(t - topoAtual) > 4) { linhas.push([]); topoAtual = t; }
+        linhas[linhas.length - 1].push(sp.textContent);
+      });
+      h2.textContent = "";
+      linhas.forEach(function (pals, i) {
+        var linha = el("span", "linha" + (ativo ? " ativa" : ""));
+        linha.style.setProperty("--atraso", (i * 150) + "ms");
+        linha.appendChild(el("span", "linha-texto", pals.join(" ")));
+        var bloco = el("span", "linha-bloco");
+        bloco.setAttribute("aria-hidden", "true");
+        linha.appendChild(bloco);
+        h2.appendChild(linha);
+        if (i < linhas.length - 1) { h2.appendChild(document.createTextNode(" ")); }
+      });
+    }
+    function ativarTitulo(h2) {
+      h2.classList.add("linhas-ativas");
+      Array.prototype.forEach.call(h2.querySelectorAll(".linha"), function (l) { l.classList.add("ativa"); });
+    }
+
+    if (reduzMovimento || !("IntersectionObserver" in window)) {
+      blocos.forEach(function (b) { b.classList.add("reveal", "active", "sem-transicao"); });
+      return;
+    }
+
+    titulos.forEach(dividirLinhas);
+    var larguraAnterior = window.innerWidth, temporizador = null;
+    window.addEventListener("resize", function () {
+      if (window.innerWidth === larguraAnterior) { return; }
+      larguraAnterior = window.innerWidth;
+      clearTimeout(temporizador);
+      temporizador = setTimeout(function () { titulos.forEach(dividirLinhas); }, 150);
+    });
+
+    blocos.forEach(function (b) { b.classList.add("reveal"); });
+    var lote = [], agendado = false;
+    function liberarLote() {
+      lote.forEach(function (b, i) {
+        b.style.setProperty("--atraso", (i * 100) + "ms");
+        b.classList.add("active");
+      });
+      lote = []; agendado = false;
+    }
+    var io = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (en) {
+        if (!en.isIntersecting) { return; }
+        io.unobserve(en.target);
+        lote.push(en.target);
+        var h2 = en.target.querySelector(".secao-cabeca > h2");
+        if (h2 && titulos.indexOf(h2) !== -1) { ativarTitulo(h2); }
+      });
+      if (lote.length && !agendado) { agendado = true; requestAnimationFrame(liberarLote); }
+    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+    blocos.forEach(function (b) { io.observe(b); });
+  })();
+
+  /* ---------- barra do topo troca de tema ao cruzar a faixa Giz ---------- */
+  (function temaTopo() {
+    var topo = document.querySelector(".topo");
+    var faixa = document.querySelector("[data-nav-theme]");
+    if (!topo || !faixa) { return; }
+    function aplicar(sob) {
+      if (sob) { topo.setAttribute("data-tema", faixa.getAttribute("data-nav-theme")); }
+      else { topo.removeAttribute("data-tema"); }
+    }
+    function porRetangulo() {
+      var r = faixa.getBoundingClientRect(), h = topo.offsetHeight;
+      aplicar(r.top <= h && r.bottom > h);
+    }
+    if (!("IntersectionObserver" in window)) {
+      window.addEventListener("scroll", porRetangulo, { passive: true });
+      porRetangulo();
+      return;
+    }
+    // A zona observada é só a faixa que fica sob a barra fixa: o resto da janela sai pelo rootMargin negativo
+    var io = null;
+    function observar() {
+      if (io) { io.disconnect(); }
+      var alturaTopo = topo.offsetHeight;
+      var resto = Math.max(0, window.innerHeight - alturaTopo);
+      io = new IntersectionObserver(function (entradas) {
+        aplicar(entradas[entradas.length - 1].isIntersecting);
+      }, { rootMargin: "0px 0px -" + resto + "px 0px", threshold: 0 });
+      io.observe(faixa);
+    }
+    var temporizador = null;
+    window.addEventListener("resize", function () { clearTimeout(temporizador); temporizador = setTimeout(observar, 150); });
+    observar();
   })();
 })();

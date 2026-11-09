@@ -54,7 +54,26 @@ O estudo completo está em [docs/identidade.md](docs/identidade.md).
 - **Paleta**: grafite `#1F2327` como fundo (o piso da oficina), chapa `#2B3036` nos painéis, giz `#ECEBE4` no texto, cone `#A9ADB3` nos apoios, **âmbar de farol `#F2A51A`** como único destaque (um por tela) e verde-sinal `#35C27B` só para "pronto" e "ok". Fugi de propósito do preto com vermelho e do fundo de carbono, que todo site de oficina usa.
 - **Fontes**: Barlow Condensed (títulos, preços, horários e placas, que pedem número grande e firme, como painel de instrumentos) e Barlow (corpo). As duas são da mesma família, então o site tem uma voz só. Arquivos locais em `fonts/`, licença SIL OFL.
 - **Textura**: um padrão de traços diagonais feito só em CSS, a 7% de opacidade, lembra o piso pintado da oficina sem virar foto.
-- **Foto do hero**: hoje é uma composição abstrata gerada com Pillow nas cores da marca (disco de freio com luz âmbar). O prompt para a foto definitiva está em `docs/identidade.md`.
+- **Foto do hero**: imagem gerada por IA no Canva (disco de freio com luz âmbar), ilustrativa. O prompt está em `docs/identidade.md`.
+- **Leva final de acabamento**: o site segue dois design systems do meu catálogo, o nexus-cyber (painéis hachurados, botões com trilho, medidores com glow, cantos de HUD, revelação com blur) e o lando-norris (cartões de mídia com entalhe, células de contagem, títulos que aparecem linha a linha, faixa de texto em loop, barra que troca de tema sobre a faixa clara dos depoimentos). A lista completa está em `docs/identidade.md`, na seção "Design systems aplicados (leva final)".
+
+## Imagens
+
+Todas as fotos do site são **geradas por inteligência artificial no Canva** e são **ilustrativas**: não mostram a oficina, pessoas ou carros reais. Os arquivos ficam em `img/`:
+
+| Arquivo | Proporção | Onde aparece |
+| --- | --- | --- |
+| `img/hero.webp` | 3:2 (1620 x 1080) | Abertura |
+| `img/servico-revisao-elevador.webp` | 4:3 (1456 x 1088) | Cartão "Revisão por quilometragem" |
+| `img/servico-freios-pastilha.webp` | 4:3 (1456 x 1088) | Cartão "Freios" |
+| `img/servico-suspensao-amortecedor.webp` | 4:3 (1456 x 1088) | Cartão "Suspensão" |
+| `img/servico-alinhamento-alvo.webp` | 4:3 (1456 x 1088) | Cartão "Alinhamento e balanceamento" |
+| `img/servico-polimento-capo.webp` | 4:3 (1456 x 1088) | Cartão "Polimento técnico" |
+| `img/servico-higienizacao-interior.webp` | 4:3 (1456 x 1088) | Cartão "Higienização interna" |
+| `img/recepcao-chaves.webp` | 3:2 (1456 x 970) | Painel "A oficina" |
+| `img/mecanico-limpando-maos.webp` | 3:4 (1088 x 1456) | Ao lado dos depoimentos |
+
+Enquanto eu não gero cada foto no Canva, os oito arquivos novos são retângulos lisos na cor da paleta, só para marcar o lugar e a proporção. Os prompts de geração estão no plano de design.
 
 ## Como funciona por dentro
 
@@ -67,7 +86,7 @@ A página é um arquivo HTML, uma folha de estilo e dois programas em JavaScript
 
 ## Detalhes técnicos
 
-- HTML, CSS e JavaScript puros. Sem framework, sem CDN, sem fonte externa, sem analytics.
+- HTML, CSS e JavaScript puros. Sem framework, sem CDN, sem fonte externa, sem analytics. Os efeitos de movimento (revelação ao rolar, títulos linha a linha, faixa em loop, brilho nos painéis, troca de tema da barra) são CSS e JavaScript próprios, desligados com `prefers-reduced-motion`.
 - `Content-Security-Policy` por meta: `default-src 'self'`, sem script inline, sem estilo inline no HTML, `connect-src 'none'`, `form-action 'none'`.
 - Acessibilidade: contraste AA em todos os pares de cor, foco visível com anel âmbar, chips e horários são `input type="radio"` de verdade (teclado e leitor de tela funcionam), resultados em regiões `aria-live`, `prefers-reduced-motion` respeitado (contador, cascata do hero, pulso da etapa e deslize do preço desligam).
 - Celular primeiro: grade de uma coluna até 900 px, botões e campos com 48 px de altura mínima, menu que abre e fecha com `aria-expanded`.
